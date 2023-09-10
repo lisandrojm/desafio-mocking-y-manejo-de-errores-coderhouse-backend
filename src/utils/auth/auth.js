@@ -4,16 +4,16 @@
 
 const authorization = (allowedRoles) => {
   return async (req, res, next) => {
-    console.log('Authorization middleware called.');
+    /*     console.log('Authorization middleware called.'); */
 
     if (!req.user) {
-      console.log('User not authenticated.');
+      /*       console.log('User not authenticated.'); */
       res.redirect('/');
       return res.status(401).send({ error: 'Unauthorized' });
     }
 
     if (!allowedRoles.includes(req.user.role)) {
-      console.log('User does not have required role.', req.user.role);
+      /*       console.log('User does not have required role.', req.user.role); */
 
       if (req.user.role === 'admin') {
         return res.redirect('/admin');
@@ -24,7 +24,7 @@ const authorization = (allowedRoles) => {
       return res.status(403).send({ error: 'No permissions' });
     }
 
-    console.log('User has required role. Proceeding...');
+    /*     console.log('User has required role. Proceeding...'); */
     next();
   };
 };

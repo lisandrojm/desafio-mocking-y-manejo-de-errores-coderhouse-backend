@@ -20,7 +20,7 @@ class SocketConfig {
   init() {
     try {
       this.io.on('connection', (socket) => {
-        console.log('Cliente conectado');
+        /*         console.log('Cliente conectado'); */
         this.io.sockets.emit('init', this.mensajes);
         socket.on('mensaje', (data) => {
           this.mensajes.push({ ...data });
@@ -36,7 +36,7 @@ class SocketConfig {
           this.io.emit('deleteProduct', productId);
         });
         socket.on('disconnect', () => {
-          console.log('Cliente desconectado');
+          /*           console.log('Cliente desconectado'); */
         });
       });
     } catch (error) {

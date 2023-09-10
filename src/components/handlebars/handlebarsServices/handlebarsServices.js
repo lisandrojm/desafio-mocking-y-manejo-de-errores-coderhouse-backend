@@ -74,7 +74,7 @@ class HandlebarsServices {
       const products = await ProductsServices.getProducts(limit, page, sort, query, res);
       /* Repository */
       const user = await usersServices.findUserById(userData._id, { path: 'cart' });
-      console.log('~~~getProducts Populate userServices.findUserByID ~~~', user);
+      /*       console.log('~~~getProducts Populate userServices.findUserByID ~~~', user); */
 
       let totalCartProducts = 0;
       if (user && user.cart && user.cart.products) {
@@ -193,7 +193,7 @@ class HandlebarsServices {
     try {
       /* Repository */
       const cart = await cartsServices.findCartById(cid, { path: 'products.productId', select: '-__v' });
-      console.log('~~~getCartProductById Populate findById ~~~', cart);
+      /*       console.log('~~~getCartProductById Populate findById ~~~', cart); */
       const formattedCart = {
         _id: cart._id,
         products: cart.products.map((item) => ({

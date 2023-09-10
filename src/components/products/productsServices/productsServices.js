@@ -25,7 +25,7 @@ class ProductsServices {
         : {};
       /* Repository */
       const result = await productsServices.paginate(filter, options);
-      console.log('~~~getAllProducts productServices.paginate result~~~', result);
+      /*       console.log('~~~getAllProducts productServices.paginate result~~~', result); */
       if (page && !/^\d+$/.test(page)) {
         return res.sendUserError('El parámetro "page" debe ser un número válido');
       } else if (page && (parseInt(page) < 1 || parseInt(page) > result.totalPages)) {
@@ -114,7 +114,7 @@ class ProductsServices {
         } else {
           req.app.io.emit('updateProduct', updatedProduct);
           const data = updatedProduct;
-          console.log('Producto actualizado correctamente');
+          /*           console.log('Producto actualizado correctamente'); */
           return res.sendSuccess({ message: 'Producto actualizado correctamente', payload: data });
         }
       }
@@ -157,7 +157,7 @@ class ProductsServices {
 
       /* Repository */
       const result = await productsServices.paginate(filter, options);
-      console.log('~~~getProducts productServices.paginate result~~~', result);
+      /*       console.log('~~~getProducts productServices.paginate result~~~', result); */
 
       const formattedProducts = result.docs.map((product) => {
         return {
@@ -213,7 +213,7 @@ class ProductsServices {
 
       /* Repository */
       const result = await productsServices.paginate(filter, options);
-      console.log('~~~getProducts productServices.paginate result~~~', result);
+      /*       console.log('~~~getProducts productServices.paginate result~~~', result); */
 
       const formattedProducts = result.docs.map((product) => {
         return {
@@ -270,7 +270,7 @@ class ProductsServices {
 
       /* Repository */
       const result = await productsServices.paginate(filter, options);
-      console.log('~~~getRealTimeProducts productServices.paginate result~~~', result);
+      /*       console.log('~~~getRealTimeProducts productServices.paginate result~~~', result); */
 
       const formattedProducts = result.docs.map((product) => {
         return {
@@ -325,7 +325,7 @@ class ProductsServices {
 
       /* Repository */
       const result = await productsServices.paginate(filter, options);
-      console.log('~~~getRealTimeProducts productServices.paginate result~~~', result);
+      /*       console.log('~~~getRealTimeProducts productServices.paginate result~~~', result); */
 
       const formattedProducts = result.docs.map((product) => {
         return {

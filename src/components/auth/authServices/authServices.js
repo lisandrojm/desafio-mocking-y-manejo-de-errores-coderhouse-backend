@@ -55,8 +55,8 @@ class AuthServices {
       const token = await JWTService.generateJwt({ id: savedUser._id });
 
       /* Repository */
-      let updatedUser = await usersServices.findByIdAndUpdate(savedUser._id, { token }, { new: true });
-      console.log('~~~User registrado~~~', updatedUser);
+      /*       let updatedUser = await usersServices.findByIdAndUpdate(savedUser._id, { token }, { new: true }); */
+      /*       console.log('~~~User registrado~~~', updatedUser); */
       return res.sendCreated({
         payload: {
           message: 'Usuario agregado correctamente',
@@ -77,7 +77,7 @@ class AuthServices {
           admin: true,
           role: 'admin',
         };
-        console.log('admin', adminUser);
+        /*         console.log('admin', adminUser); */
         return { status: 200, success: true, response: adminUser, isAdminLogin: true };
       } else {
         /* Repository */
@@ -86,20 +86,20 @@ class AuthServices {
         });
 
         if (!user) {
-          console.log('~~~El usuario no existe en la base de datos!~~~');
+          /*           console.log('~~~El usuario no existe en la base de datos!~~~'); */
           return { status: 401, success: false, response: 'El usuario no existe en la base de datos!' };
         }
 
         if (!isValidPassword(password, user)) {
-          console.log('~~~Credenciales inválidas~~~');
+          /*           console.log('~~~Credenciales inválidas~~~'); */
           return { status: 403, success: false, response: 'Credenciales inválidas' };
         }
 
-        console.log('~~~Login jwt success!~~~', user);
+        /*         console.log('~~~Login jwt success!~~~', user); */
         return { status: 200, success: true, response: user, isAdminLogin: false };
       }
     } catch (error) {
-      console.log(error);
+      /*       console.log(error); */
       return { status: 500, success: false, response: 'Error en el servidor' };
     }
   };
@@ -121,7 +121,7 @@ class AuthServices {
             req.logoutResult = response;
             resolve(response);
           }
-          console.log('Logout Session success');
+          /*           console.log('Logout Session success'); */
         });
       });
 

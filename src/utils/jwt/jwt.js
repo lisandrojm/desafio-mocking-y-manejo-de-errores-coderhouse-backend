@@ -13,7 +13,7 @@ const generateJwt = async (payload) => {
     });
     return token;
   } catch (error) {
-    console.log(`~~~~  generateJWT ~~ `, error);
+    /*     console.log(`~~~~  generateJWT ~~ `, error); */
     return null;
   }
 };

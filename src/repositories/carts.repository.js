@@ -15,10 +15,10 @@ class CartsRepository extends BaseRepository {
     try {
       const item = await this.model.findById(id).populate(populateOptions).exec();
       if (!item) {
-        console.log(`${this.model.modelName} not found in repository`);
+        /*         console.log(`${this.model.modelName} not found in repository`); */
         return null;
       }
-      console.log(`${this.model.modelName}Repository findById running`);
+      /*       console.log(`${this.model.modelName}Repository findById running`); */
       return item;
     } catch (error) {
       throw error;

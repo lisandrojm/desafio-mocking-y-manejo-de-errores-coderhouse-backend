@@ -58,7 +58,7 @@ class HandlebarsController {
     }
 
     const userWithCurrentDTO = await usersServices.getUserWithCurrentDTO(user);
-    console.log('userWithCurrentDTO getCurrent running', userWithCurrentDTO);
+    /*     console.log('userWithCurrentDTO getCurrent running', userWithCurrentDTO); */
     // Utiliza userWithCurrentDTO en el contexto
     const context = { user: userWithCurrentDTO, ...data };
     return res.render('current', context);
@@ -72,7 +72,7 @@ class HandlebarsController {
     // Filtra y estructura los datos del usuario utilizando getUserWithCurrentDTO
     const userWithCurrentDTO = await usersServices.getUserWithCurrentDTO(userData);
 
-    console.log('userWithCurrentDTO getProducts running', userWithCurrentDTO);
+    /*     console.log('userWithCurrentDTO getProducts running', userWithCurrentDTO); */
     // Utiliza userWithCurrentDTO en el contexto
     const context = { user: userWithCurrentDTO, ...data };
 
@@ -86,7 +86,7 @@ class HandlebarsController {
 
     // Filtra y estructura los datos del usuario utilizando getUserWithCurrentDTO
     const userWithCurrentDTO = await usersServices.getUserWithCurrentDTO(userData);
-    console.log('userWithCurrentDTO getCartProductById running', userWithCurrentDTO);
+    /*     console.log('userWithCurrentDTO getCartProductById running', userWithCurrentDTO); */
 
     // Utiliza userWithCurrentDTO en la función HandlebarsServices.getCartProductById
     const data = await HandlebarsServices.getCartProductById(cartId, res, userWithCurrentDTO);
@@ -100,7 +100,7 @@ class HandlebarsController {
 
     // Filtra y estructura los datos del usuario utilizando getUserWithCurrentDTO
     const userWithCurrentDTO = await usersServices.getUserWithCurrentDTO(userData);
-    console.log('userWithCurrentDTO getRealTimeProducts running', userWithCurrentDTO);
+    /*     console.log('userWithCurrentDTO getRealTimeProducts running', userWithCurrentDTO); */
     // Utiliza userWithCurrentDTO en la función HandlebarsServices.getRealTimeProducts
     const data = await HandlebarsServices.getRealTimeProducts(limit, page, sort, query, res, userWithCurrentDTO);
 
@@ -115,7 +115,7 @@ class HandlebarsController {
     // Filtra y estructura los datos del usuario utilizando getUserWithCurrentDTO
     const userWithCurrentDTO = await usersServices.getUserWithCurrentDTO(userData);
 
-    console.log('userWithCurrentDTO getProducts running', userWithCurrentDTO);
+    /*     console.log('userWithCurrentDTO getProducts running', userWithCurrentDTO); */
     // Utiliza userWithCurrentDTO en el contexto
     const context = { user: userWithCurrentDTO, ...data };
 
@@ -128,7 +128,7 @@ class HandlebarsController {
 
     // Filtra y estructura los datos del usuario utilizando getUserWithCurrentDTO
     const userWithCurrentDTO = await usersServices.getUserWithCurrentDTO(userData);
-    console.log('userWithCurrentDTO getHomeProducts running', userWithCurrentDTO);
+    /*     console.log('userWithCurrentDTO getHomeProducts running', userWithCurrentDTO); */
     // Utiliza userWithCurrentDTO en la función HandlebarsServices.getRealTimeProducts
     // Utiliza userWithCurrentDTO en la función HandlebarsServices.getHomeProducts
     const data = await HandlebarsServices.getHomeProducts(limit, page, sort, query, res, userWithCurrentDTO);

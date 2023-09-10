@@ -17,11 +17,11 @@ const passportCall = (strategy) => {
         return next(err);
       }
       if (!user) {
-        console.log('Usuario no autenticado con passportCall:', info.messages ? info.messages : info.toString());
+        /*         console.log('Usuario no autenticado con passportCall:', info.messages ? info.messages : info.toString()); */
         return res.status(401).send({ error: info.messages ? info.messages : info.toString() });
       }
       req.user = user;
-      console.log('Usuario autenticado con passportCall:', user);
+      /*       console.log('Usuario autenticado con passportCall:', user); */
       next();
     })(req, res, next);
   };

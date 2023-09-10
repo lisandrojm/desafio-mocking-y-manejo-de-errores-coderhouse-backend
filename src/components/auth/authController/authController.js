@@ -14,7 +14,7 @@ class AuthController {
   /* ///////////////////////////////////// */
   register = async (req, res) => {
     const payload = req.body;
-    console.log('register', payload);
+    /*     console.log('register', payload); */
 
     return await authServices.register(payload, res);
   };
@@ -64,7 +64,7 @@ class AuthController {
     try {
       const logoutResult = await authServices.logout(req, res);
       if (logoutResult.success) {
-        console.log('Logout session and jwt success!');
+        /*         console.log('Logout session and jwt success!'); */
         return res.redirect('/');
       } else {
         return res.sendUnauthorized(logoutResult);
