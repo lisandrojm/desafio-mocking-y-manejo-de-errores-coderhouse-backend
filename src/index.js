@@ -19,7 +19,7 @@ const initializePassport = require('./config/passport');
 /* Inicializar factory */
 const Dao = require('./dao/factory');
 /* faker products */
-const { generateFakeProducts } = require('./scripts/generateFakerProducts');
+/* const { generateFakeProducts } = require('./scripts/generateFakerProducts'); */
 
 class Server {
   constructor() {
@@ -84,7 +84,7 @@ class Server {
     const server = this.app.listen(PORT, () => {
       console.log(`~~~ Servidor en ejecución en http://localhost:${PORT} ~~~`);
       // Crear productos con faker al iniciar
-      generateFakeProducts();
+      /*       generateFakeProducts(); */
     });
 
     this.app.io.attach(server);

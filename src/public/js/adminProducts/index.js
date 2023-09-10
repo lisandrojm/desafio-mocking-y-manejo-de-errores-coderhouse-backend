@@ -149,3 +149,39 @@ productUpdateForm.addEventListener('submit', async (e) => {
     console.error('Error al actualizar el producto:', error);
   }
 });
+
+/* Mocking Products */
+// Obtén una referencia al botón
+const mockingButton = document.getElementById('mockingButton');
+
+// Agrega un manejador de eventos de clic al botón
+mockingButton.addEventListener('click', async (e) => {
+  e.preventDefault(); // Evita que el enlace siga la URL
+
+  try {
+    // Realiza la solicitud POST utilizando fetch o cualquier otra biblioteca de solicitud HTTP
+    const response = await fetch('/mockingproducts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        roles: ['ADMIN'],
+      }),
+    });
+
+    if (response.ok) {
+      // La solicitud POST se completó con éxito
+      swal('¡Productos creados exitosamente con Faker!', 'Vuelva a ingresar a "Administrar Productos" desde el dashboard de Admin para visualizarlos', 'success').then(function () {
+        // Redirigir al usuario a la página de productos
+        window.location.href = '/admin';
+      });
+    } else {
+      // La solicitud POST no se completó con éxito, puedes manejar los errores aquí
+      console.error('Error al realizar la solicitud POST');
+    }
+  } catch (error) {
+    // Maneja los errores de red u otros errores aquí
+    console.error('Error en la solicitud POST:', error);
+  }
+});
