@@ -14,13 +14,13 @@ const args = program.opts();
 let envFilePath = '';
 if (args.mode === 'production') {
   envFilePath = './.env.production';
-  console.log('~~~Iniciando entorno "Production"...~~~');
+  console.log('~~~ Iniciando entorno Production ~~~');
 } else if (args.mode === 'staging') {
   envFilePath = './.env.staging';
-  console.log('~~~Iniciando entorno "Staging"...~~~');
+  console.log('~~~ Iniciando entorno Staging ~~~');
 } else {
   envFilePath = './.env.development';
-  console.log('~~~Iniciando entorno "Development"...~~~');
+  console.log('~~~ Iniciando entorno Development ~~~');
 }
 /* ///////////////////////////////////////// */
 /* Comandos para las diferentes variables de entorno */

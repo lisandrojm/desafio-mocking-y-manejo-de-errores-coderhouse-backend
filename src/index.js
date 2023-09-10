@@ -82,7 +82,7 @@ class Server {
 
   listen() {
     const server = this.app.listen(PORT, () => {
-      console.log(`Servidor en ejecución en http://localhost:${PORT}`);
+      console.log(`~~~ Servidor en ejecución en http://localhost:${PORT} ~~~`);
       // Crear productos con faker al iniciar
       generateFakeProducts();
     });

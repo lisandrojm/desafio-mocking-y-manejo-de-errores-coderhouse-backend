@@ -20,11 +20,11 @@ class CartsServices {
     try {
       /* Repository */
       const cartCount = await cartsServices.countDocuments();
-      console.log('~~~CartCount~~~', cartCount);
+      /*       console.log('~~~CartCount~~~', cartCount); */
       if (cartCount === 0) {
         /* Repository */
         await cartsServices.create({ products: [] });
-        console.log('Colección "carts" inicializada correctamente');
+        /*         console.log('Colección "carts" inicializada correctamente'); */
       }
     } catch (error) {
       console.error('Error al inicializar la colección de carritos en la base de datos', error);
@@ -67,7 +67,7 @@ class CartsServices {
     try {
       /* Repository */
       const cart = await cartsServices.findById(cid, { path: 'products.productId' });
-      console.log('POPULATE', cart);
+      /*       console.log('POPULATE', cart); */
       if (!cart) {
         return res.sendNotFound('Carrito no encontrado');
       }
@@ -143,7 +143,7 @@ class CartsServices {
     try {
       /* Repository */
       const cart = await cartsServices.findById(cid);
-      console.log('cid', cid);
+      /*       console.log('cid', cid); */
       if (!cart) {
         return res.sendNotFound('Carrito no encontrado');
       }
@@ -232,7 +232,7 @@ class CartsServices {
     const ticketCode = uuidv4();
     try {
       const cart = await cartsServices.findById(cid);
-      console.log('purchaseCart del carrito', cart);
+      /*       console.log('purchaseCart del carrito', cart); */
       if (!cart) {
         return res.sendNotFound('Carrito no encontrado');
       }
@@ -263,8 +263,8 @@ class CartsServices {
         }
       }
 
-      console.log('purchaseCart productsToPurchase', productsToPurchase);
-      console.log('purchaseCart productsNotPurchased', productsNotPurchased);
+      /*       console.log('purchaseCart productsToPurchase', productsToPurchase); */
+      /*       console.log('purchaseCart productsNotPurchased', productsNotPurchased); */
 
       // Extraer el token JWT de la cookie
       const jwtToken = req.cookies.jwt; // Asegúrate de haber configurado la cookie correctamente
@@ -283,7 +283,7 @@ class CartsServices {
         username = req.session.user.email;
       }
 
-      console.log('~~~user email ~~~', username);
+      /*       console.log('~~~user email ~~~', username); */
       // Crear un ticket con los productos comprados
       const ticket = new Ticket({
         code: ticketCode,
@@ -292,7 +292,7 @@ class CartsServices {
         purchaser: username, // Utiliza el nombre de usuario extraído del token o la sesión
       });
 
-      console.log('~~~Ticket~~~', ticket);
+      /*       console.log('~~~Ticket~~~', ticket); */
       await ticketsServices.create(ticket);
       // Actualizar el carrito con los productos no comprados
       cart.products = productsToPurchase.filter((productData) => productsNotPurchased.includes(productData.productId));
@@ -323,7 +323,7 @@ class CartsServices {
     const ticketCode = uuidv4();
     try {
       const cart = await cartsServices.findById(cid);
-      console.log('purchaseCart del carrito', cart);
+      /*       console.log('purchaseCart del carrito', cart); */
       if (!cart) {
         return res.sendNotFound('Carrito no encontrado');
       }
@@ -354,8 +354,8 @@ class CartsServices {
         }
       }
 
-      console.log('purchaseCart productsToPurchase', productsToPurchase);
-      console.log('purchaseCart productsNotPurchased', productsNotPurchased);
+      /*       console.log('purchaseCart productsToPurchase', productsToPurchase); */
+      /*       console.log('purchaseCart productsNotPurchased', productsNotPurchased); */
 
       // Extraer el token JWT de la cookie
       const jwtToken = req.cookies.jwt; // Asegúrate de haber configurado la cookie correctamente
@@ -373,7 +373,7 @@ class CartsServices {
       if (!username && req.session.user) {
         username = req.session.user.email;
       }
-      console.log('~~~user email ~~~', username);
+      /*       console.log('~~~user email ~~~', username); */
       // Crear un ticket con los productos comprados
       const ticket = new Ticket({
         code: ticketCode,
@@ -382,7 +382,7 @@ class CartsServices {
         purchaser: username, // Utiliza el nombre de usuario extraído del token o la sesión
       });
 
-      console.log('~~~Ticket~~~', ticket);
+      /*       console.log('~~~Ticket~~~', ticket); */
       await ticketsServices.create(ticket);
       // Actualizar el carrito con los productos no comprados
       cart.products = productsToPurchase.filter((productData) => productsNotPurchased.includes(productData.productId));

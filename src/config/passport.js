@@ -25,7 +25,7 @@ const cookieExtractor = (req) => {
 };
 
 const initializePassport = () => {
-  console.log('~~~Passport running~~~');
+  /*   console.log('~~~Passport running~~~'); */
 
   /* ///////////////////////////////////// */
   /* Jwt */
@@ -40,7 +40,7 @@ const initializePassport = () => {
       /*       console.log('~~~jwt passport~~~'), */
       async (jwt_payload, done) => {
         try {
-          console.log('~~~Passport Jwt success~~~ payload:', jwt_payload);
+          /*           console.log('~~~Passport Jwt success~~~ payload:', jwt_payload); */
           return done(null, jwt_payload);
         } catch (err) {
           return done(err);
@@ -61,7 +61,7 @@ const initializePassport = () => {
         try {
           let user = await User.findOne({ email: username });
           if (user) {
-            console.log('~~~Passport Register alert. "El usuario ya existe"~~~');
+            /*             console.log('~~~Passport Register alert. "El usuario ya existe"~~~'); */
             return done(null, { userExists: true });
           }
           const newUser = new User({
@@ -86,7 +86,7 @@ const initializePassport = () => {
           await newUser.save();
 
           const data = newUser;
-          console.log('~~~Passport Register success. "Usuario registrado"~~~', data);
+          /*           console.log('~~~Passport Register success. "Usuario registrado"~~~', data); */
           return done(null, data);
         } catch (error) {
           return done('Passport Register error. Error al obtener el usuario:' + error);
@@ -112,18 +112,18 @@ const initializePassport = () => {
               role: 'admin',
             };
             delete adminUser.password;
-            console.log('~~~Passport Admin Login success~~~', adminUser);
+            /*             console.log('~~~Passport Admin Login success~~~', adminUser); */
             return done(null, adminUser);
           } else {
             /* User login */
             const user = await User.findOne({ email: username });
             if (!user || !isValidPassword(password, user)) {
-              console.log('~~~Passport Login alert. Invalid credentials~~~');
+              /*               console.log('~~~Passport Login alert. Invalid credentials~~~'); */
               return done(null, false);
             }
             delete user.password;
             const data = user;
-            console.log('~~~Passport User Login success~~~', data);
+            /*             console.log('~~~Passport User Login success~~~', data); */
             return done(null, data);
           }
         } catch (error) {
@@ -143,7 +143,7 @@ const initializePassport = () => {
       },
       async (accessToken, refreshToken, profile, done) => {
         try {
-          console.log(profile);
+          /*           console.log(profile); */
           let user = await User.findOne({ email: profile._json.email });
           if (!user) {
             let newUser = {

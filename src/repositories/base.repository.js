@@ -13,7 +13,7 @@ class BaseRepository {
   create = async (data) => {
     try {
       const newItem = await this.Dao.create(data);
-      console.log(`${this.model.modelName}Repository create running`);
+      /*       console.log(`${this.model.modelName}Repository create running`); */
       return newItem;
     } catch (error) {
       throw error;
@@ -24,10 +24,10 @@ class BaseRepository {
     try {
       const item = await this.Dao.findById(id);
       if (!item) {
-        console.log(`${this.model.modelName} not found in repository`);
+        /*         console.log(`${this.model.modelName} not found in repository`); */
         return null;
       }
-      console.log(`${this.model.modelName}Repository findById running`);
+      /*       console.log(`${this.model.modelName}Repository findById running`); */
       return item;
     } catch (error) {
       throw error;
@@ -38,10 +38,10 @@ class BaseRepository {
     try {
       const updatedItem = await this.Dao.findByIdAndUpdate(id, data);
       if (!updatedItem) {
-        console.log(`${this.model.modelName} not found in repository`);
+        /*         console.log(`${this.model.modelName} not found in repository`); */
         return null;
       }
-      console.log(`${this.model.modelName}Repository findByIdAndUpdate running`);
+      /*       console.log(`${this.model.modelName}Repository findByIdAndUpdate running`); */
       return updatedItem;
     } catch (error) {
       throw error;
@@ -52,10 +52,10 @@ class BaseRepository {
     try {
       const deletedItem = await this.Dao.findByIdAndDelete(id);
       if (!deletedItem) {
-        console.log(`${this.model.modelName} not found in repository`);
+        /*         console.log(`${this.model.modelName} not found in repository`); */
         return null;
       }
-      console.log(`${this.model.modelName}Repository  findByIdAndDelete running`);
+      /*       console.log(`${this.model.modelName}Repository  findByIdAndDelete running`); */
       return deletedItem;
     } catch (error) {
       throw error;
@@ -65,7 +65,7 @@ class BaseRepository {
   findOne = async (query) => {
     try {
       const item = await this.Dao.findOne(query);
-      console.log(`${this.model.modelName}Repository findOne running`);
+      /*       console.log(`${this.model.modelName}Repository findOne running`); */
       return item;
     } catch (error) {
       throw error;
@@ -75,7 +75,7 @@ class BaseRepository {
   findAll = async () => {
     try {
       const items = await this.Dao.findAll();
-      console.log(`${this.model.modelName}Repository findAll running`);
+      /*       console.log(`${this.model.modelName}Repository findAll running`); */
       return items;
     } catch (error) {
       throw error;
@@ -85,7 +85,7 @@ class BaseRepository {
   save = async (data) => {
     try {
       const saveItem = await this.Dao.save(data);
-      console.log(`${this.model.modelName}Repository save running`);
+      /*       console.log(`${this.model.modelName}Repository save running`); */
       return saveItem;
     } catch (error) {
       throw error;
@@ -95,7 +95,7 @@ class BaseRepository {
   countDocuments = async (query) => {
     try {
       const count = await this.Dao.countDocuments(query);
-      console.log(`${this.model.modelName}Repository countDocuments running`);
+      /*       console.log(`${this.model.modelName}Repository countDocuments running`); */
       return count;
     } catch (error) {
       throw error;
@@ -119,7 +119,7 @@ class BaseRepository {
 
     const prevPage = hasPrevPage ? page - 1 : null;
     const nextPage = hasNextPage ? page + 1 : null;
-    console.log(`${this.model.modelName}Repository pagination running`);
+    /*     console.log(`${this.model.modelName}Repository pagination running`); */
     return {
       docs: results,
       totalDocs,
@@ -137,10 +137,10 @@ class BaseRepository {
     try {
       const deletedItem = await this.Dao.deleteOne(query);
       if (deletedItem.deletedCount === 0) {
-        console.log(`${this.model.modelName} not found in repository`);
+        /*         console.log(`${this.model.modelName} not found in repository`); */
         return null;
       }
-      console.log(`${this.model.modelName}Repository deleteOne running`);
+      /*       console.log(`${this.model.modelName}Repository deleteOne running`); */
       return deletedItem;
     } catch (error) {
       throw error;

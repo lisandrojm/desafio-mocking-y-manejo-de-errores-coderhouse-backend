@@ -12,7 +12,7 @@ class UserDTO {
     this.role = user.role || 'user';
     this.cart = user.cart || null;
     this.token = '';
-    console.log('UserDTO created:', this);
+    /*     console.log('UserDTO created:', this); */
   }
 }
 

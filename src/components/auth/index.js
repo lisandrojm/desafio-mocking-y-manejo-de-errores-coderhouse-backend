@@ -17,7 +17,7 @@ class Auth extends CustomRouter {
 
     // Rutas para manejar la autenticación con el prefijo
     this.router.use(basePath, (req, res, next) => {
-      console.log('~~~Middleware para rutas de autenticación~~~');
+      /*       console.log('~~~Middleware para rutas de autenticación~~~'); */
       next();
     });
 

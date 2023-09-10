@@ -31,9 +31,9 @@ async function generateFakeProducts() {
         await productsServices.save(fakeProduct);
       }
 
-      console.log('~~~Productos creados exitosamente con Faker.~~~');
+      console.log('~~~ Productos creados exitosamente con Faker ~~~');
     } else {
-      console.log('~~~Ya existen productos en la base de datos. No se han creado productos con Faker.~~~');
+      console.log('~~~ Ya existen productos en la base de datos. No se han creado productos con Faker ~~~');
     }
   } catch (error) {
     console.error('Error generando productos falsos:', error);

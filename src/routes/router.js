@@ -37,7 +37,7 @@ class CustomRouter {
     return callbacks.map((callback) => async (req, res, next) => {
       try {
         await callback(req, res, next);
-        console.log('~~~Callback~~~', callback);
+        /*         console.log('~~~Callback~~~', callback); */
       } catch (error) {
         console.error(error);
         res.status(500).send(error);
@@ -57,21 +57,21 @@ class CustomRouter {
 
   handlePolicies = (policies) => async (req, res, next) => {
     if (policies[0] === 'PUBLIC') {
-      console.log('~~~"handlePolicies" (public) access allowed.~~~');
+      /*       console.log('~~~"handlePolicies" (public) access allowed.~~~'); */
       return next();
     }
 
     const token = req.cookies.jwt;
 
     if (!token) {
-      console.log('No JWT token found.');
+      /*       console.log('No JWT token found.'); */
 
       if (req.user && policies.includes(req.user.role.toUpperCase())) {
-        console.log(`~~~"handlePolicies" Role (${req.user.role}) is allowed.~~~`);
+        /*         console.log(`~~~"handlePolicies" Role (${req.user.role}) is allowed.~~~`); */
         return next();
       }
 
-      console.log('~~~"handlePolicies" Unauthorized: User role not allowed.~~~');
+      /*       console.log('~~~"handlePolicies" Unauthorized: User role not allowed.~~~'); */
 
       // Redirecciones según el rol para sesiones
       if (req.user && req.user.role === 'admin') {
@@ -87,7 +87,7 @@ class CustomRouter {
       let user = jwt.verify(token, config.jwt_secret);
 
       if (!policies.includes(user.role.toUpperCase())) {
-        console.log('~~~"handlePolicies" Forbidden: User role not allowed.~~~');
+        /*         console.log('~~~"handlePolicies" Forbidden: User role not allowed.~~~'); */
 
         // Redirecciones según el rol para JWT
         if (user.role === 'admin') {
@@ -100,10 +100,10 @@ class CustomRouter {
       }
 
       req.user = user;
-      console.log(`~~~"handlePolicies" Role (${req.user.role}) is allowed.~~~`);
+      /*       console.log(`~~~"handlePolicies" Role (${req.user.role}) is allowed.~~~`); */
       next();
     } catch (error) {
-      console.log('~~~"handlePolicies" Unauthorized: JWT verification failed.~~~');
+      /*       console.log('~~~"handlePolicies" Unauthorized: JWT verification failed.~~~'); */
 
       if (error.name === 'JsonWebTokenError') {
         return res.redirect('/');

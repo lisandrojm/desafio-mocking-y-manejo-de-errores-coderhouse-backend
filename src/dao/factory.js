@@ -21,24 +21,24 @@ switch (persistence) {
     connection = mongoose.connection;
 
     connection.on('connected', () => {
-      console.log('~~~Conexión exitosa a la base de datos de MONGO Factory~~~');
+      /*       console.log('~~~ Conexión exitosa a la base de datos de MONGO Factory ~~~'); */
     });
 
     const DaoMongo = require('./mongo/dao.mongo');
     Dao = DaoMongo;
-    console.log('~~~Conexión exitosa a persistencia MONGO Factory~~~');
+    console.log('~~~ Conexión exitosa a persistencia MONGO Factory ~~~');
     break;
 
   case 'MEMORY':
     const DaoMemory = require('./memory/dao.memory');
     Dao = DaoMemory;
-    console.log('~~~Conexión exitosa a persistencia MEMORY Factory~~~');
+    console.log('~~~ Conexión exitosa a persistencia MEMORY Factory ~~~');
     break;
 
   case 'FILESYSTEM':
     const DaoFileSystem = require('./filesystem/dao.fylesystem');
     Dao = DaoFileSystem;
-    console.log('~~~Conexión exitosa a persistencia FILESYSTEM Factory~~~');
+    console.log('~~~ Conexión exitosa a persistencia FILESYSTEM Factory ~~~');
     break;
 
   default:
