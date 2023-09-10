@@ -20,6 +20,7 @@ const initializePassport = require('./config/passport');
 const Dao = require('./dao/factory');
 /* faker products */
 /* const { generateFakeProducts } = require('./scripts/generateFakerProducts'); */
+const ErrorHandler = require('./utils/errors/index');
 
 class Server {
   constructor() {
@@ -72,6 +73,7 @@ class Server {
     initializePassport();
     this.app.use(passport.initialize());
     this.app.use(passport.session());
+    this.app.use(ErrorHandler);
   }
 
   socket() {

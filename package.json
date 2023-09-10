@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@hapi/boom": "^10.0.1",
     "bcrypt": "^5.1.0",
     "commander": "^11.0.0",
     "connect-mongo": "^5.0.0",
