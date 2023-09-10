@@ -23,11 +23,6 @@ class HandlebarsController {
     return res.render('recovery', data);
   };
 
-  /*   getUser = async (req, res) => {
-    const data = await HandlebarsServices.getUser(res);
-    const context = { user: req.session.user || req.user, ...data };
-    return res.render('profile', context);
-  }; */
   getUser = async (req, res) => {
     const data = await HandlebarsServices.getUser(res);
     const userData = req.session.user || req.user;
@@ -129,7 +124,6 @@ class HandlebarsController {
     // Filtra y estructura los datos del usuario utilizando getUserWithCurrentDTO
     const userWithCurrentDTO = await usersServices.getUserWithCurrentDTO(userData);
     /*     console.log('userWithCurrentDTO getHomeProducts running', userWithCurrentDTO); */
-    // Utiliza userWithCurrentDTO en la función HandlebarsServices.getRealTimeProducts
     // Utiliza userWithCurrentDTO en la función HandlebarsServices.getHomeProducts
     const data = await HandlebarsServices.getHomeProducts(limit, page, sort, query, res, userWithCurrentDTO);
 
