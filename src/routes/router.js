@@ -18,19 +18,19 @@ class CustomRouter {
   init() {}
 
   get(path, policies, ...callbacks) {
-    this.router.get(path, this.handlePolicies(policies), this.generateCustomResponses, ...this.applyCallbacks(callbacks));
+    this.router.get(path, this.generateCustomResponses, this.handlePolicies(policies), ...this.applyCallbacks(callbacks));
   }
 
   post(path, policies, ...callbacks) {
-    this.router.post(path, this.handlePolicies(policies), this.generateCustomResponses, ...this.applyCallbacks(callbacks));
+    this.router.post(path, this.generateCustomResponses, this.handlePolicies(policies), ...this.applyCallbacks(callbacks));
   }
 
   put(path, policies, ...callbacks) {
-    this.router.put(path, this.handlePolicies(policies), this.generateCustomResponses, ...this.applyCallbacks(callbacks));
+    this.router.put(path, this.generateCustomResponses, this.handlePolicies(policies), ...this.applyCallbacks(callbacks));
   }
 
   delete(path, policies, ...callbacks) {
-    this.router.delete(path, this.handlePolicies(policies), this.generateCustomResponses, ...this.applyCallbacks(callbacks));
+    this.router.delete(path, this.generateCustomResponses, this.handlePolicies(policies), ...this.applyCallbacks(callbacks));
   }
 
   applyCallbacks(callbacks) {
@@ -61,28 +61,26 @@ class CustomRouter {
       return next();
     }
 
-    // Obtener el token desde la cookie "jwt"
     const token = req.cookies.jwt;
 
     if (!token) {
       console.log('No JWT token found.');
 
-      // Si no hay token, intenta buscar el rol en req.user.role
       if (req.user && policies.includes(req.user.role.toUpperCase())) {
         console.log(`~~~"handlePolicies" Role (${req.user.role}) is allowed.~~~`);
         return next();
-      } else {
-        console.log('~~~"handlePolicies" Unauthorized: User role not allowed.~~~');
-
-        //Redirecciones según el rol para sesiones
-        if (req.user && req.user.role === 'admin') {
-          return res.redirect('/admin');
-        } else if (req.user && req.user.role === 'user') {
-          return res.redirect('/user');
-        } else {
-          return res.redirect('/'); // Redirección genérica
-        }
       }
+
+      console.log('~~~"handlePolicies" Unauthorized: User role not allowed.~~~');
+
+      // Redirecciones según el rol para sesiones
+      if (req.user && req.user.role === 'admin') {
+        return res.redirect('/admin');
+      } else if (req.user && req.user.role === 'user') {
+        return res.redirect('/user');
+      }
+
+      return res.redirect('/'); // Redirección genérica
     }
 
     try {
@@ -96,9 +94,9 @@ class CustomRouter {
           return res.redirect('/admin');
         } else if (user.role === 'user') {
           return res.redirect('/user');
-        } else {
-          return res.redirect('/'); // Redirección genérica
         }
+
+        return res.redirect('/'); // Redirección genérica
       }
 
       req.user = user;
@@ -109,9 +107,9 @@ class CustomRouter {
 
       if (error.name === 'JsonWebTokenError') {
         return res.redirect('/');
-      } else {
-        return res.redirect('/error'); // Otra redirección en caso de otros errores
       }
+
+      return res.sendServerError(error);
     }
   };
 }
