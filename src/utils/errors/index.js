@@ -2,12 +2,12 @@
 /* /src/utils/errors/index.js */
 /* ************************************************************************** */
 
-const eErrors = require('./services/enums');
+const EErrors = require('./services/enums');
 
 module.exports = (error, req, res, next) => {
   console.log(error.cause);
   switch (error.code) {
-    case eErrors.INVALID_TYPES_ERROR:
+    case EErrors.INVALID_TYPES_ERROR:
       res.send({ status: 'error', error: error.name });
       break;
     default:

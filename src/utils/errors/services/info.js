@@ -10,5 +10,4 @@ const generateUserErrorInfo = (user) => {
   * email: needs to be a String, received ${user.email}
   `;
 };
-
 module.exports = generateUserErrorInfo;
