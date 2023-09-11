@@ -7,7 +7,13 @@ const { Product } = require('../../../models/products');
 
 /* Repository */
 const { productsServices } = require('../../../repositories/index');
-
+/* ************************************************************************** */
+/* test customError */
+/* ************************************************************************** */
+const CustomError = require('../../../utils/errors/services/customError');
+const EErrors = require('../../../utils/errors/services/enums');
+const { generateProductErrorInfo } = require('../../../utils/errors/services/info');
+/* ************************************************************************** */
 class ProductsServices {
   getAllProducts = async (limit, page, sort, query, res) => {
     try {
@@ -54,7 +60,18 @@ class ProductsServices {
     try {
       const { title, description, code, price, stock, category } = payload;
       if (!title || !description || !code || !price || !stock || !category) {
-        return res.sendUserError('Faltan campos obligatorios');
+        console.log('entra al bloque');
+        try {
+          CustomError.createError({
+            name: 'Product creation error',
+            cause: generateProductErrorInfo({ title, description, code, price, stock, category }),
+            message: 'Error Trying to create Product',
+            code: EErrors.INVALID_TYPES_ERROR,
+          });
+        } catch (error) {
+          console.error('Ocurrió un error en CustomError:', error);
+        }
+        return res.sendServerError('Faltan campos obligatorios del Producto');
       } else {
         /* Repository */
         const existingProduct = await productsServices.findOne({ code: code });

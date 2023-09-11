@@ -14,7 +14,7 @@ const { cartsServices } = require('../../../repositories/index');
 /* ************************************************************************** */
 const CustomError = require('../../../utils/errors/services/customError');
 const EErrors = require('../../../utils/errors/services/enums');
-const generateUserErrorInfo = require('../../../utils/errors/services/info');
+const { generateUserErrorInfo } = require('../../../utils/errors/services/info');
 /* ************************************************************************** */
 
 class UsersServices {
@@ -54,7 +54,7 @@ class UsersServices {
         } catch (error) {
           console.error('Ocurrió un error en CustomError:', error);
         }
-        return res.sendServerError('Faltan campos obligatorios');
+        return res.sendServerError('Faltan campos obligatorios del Usuario');
       }
 
       /* Repository */
