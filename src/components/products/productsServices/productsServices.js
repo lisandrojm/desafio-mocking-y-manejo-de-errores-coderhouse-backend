@@ -15,6 +15,16 @@ const EErrors = require('../../../utils/errors/services/enums');
 const { generateProductErrorInfo } = require('../../../utils/errors/services/info');
 /* ************************************************************************** */
 class ProductsServices {
+  getTotalProducts = async () => {
+    try {
+      const totalProducts = await productsServices.countDocuments({});
+      return totalProducts;
+    } catch (error) {
+      // Maneja el error de consulta de la base de datos si es necesario
+      console.error('Error al obtener el total de productos:', error);
+      return 0; // Puedes devolver un valor predeterminado en caso de error
+    }
+  };
   getAllProducts = async (limit, page, sort, query, res) => {
     try {
       const options = {
@@ -90,6 +100,11 @@ class ProductsServices {
           /* Repository */
           await productsServices.save(newProduct);
           req.app.io.emit('newProduct', newProduct);
+
+          /* Repository */
+          const totalProducts = await productsServices.countDocuments({});
+          req.app.io.emit('totalProductsUpdate', totalProducts);
+
           const data = newProduct;
           return res.sendCreated({ message: 'Producto agregado correctamente', payload: data });
         }
@@ -150,6 +165,10 @@ class ProductsServices {
       } else {
         req.app.io.emit('deleteProduct', pid);
         const data = deletedProduct;
+        /* Repository */
+        const totalProducts = await productsServices.countDocuments({});
+        req.app.io.emit('totalProductsUpdate', totalProducts);
+
         return res.sendSuccess({ message: 'Producto eliminado correctamente', payload: data });
       }
     } catch (error) {

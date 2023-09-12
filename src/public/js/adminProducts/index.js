@@ -41,6 +41,10 @@ const deleteProductRow = (productId) => {
 socket.on('newProduct', addOrUpdateProductRow);
 socket.on('updateProduct', addOrUpdateProductRow);
 socket.on('deleteProduct', deleteProductRow);
+socket.on('totalProductsUpdate', (totalProducts) => {
+  // Actualiza la cantidad total de productos en la página
+  document.getElementById('totalProductsValue').innerText = totalProducts;
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   const productForm = document.getElementById('productForm');
