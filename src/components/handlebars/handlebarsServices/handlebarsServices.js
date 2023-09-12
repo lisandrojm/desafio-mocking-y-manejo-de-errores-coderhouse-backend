@@ -7,9 +7,8 @@ const ProductsServices = require('../../products/productsServices/productsServic
 /* const { Cart } = require('../../../models/carts'); */
 /* const { User } = require('../../../models/users'); */
 const Handlebars = require('handlebars');
-
 /* Repository */
-const { cartsServices } = require('../../../repositories/index');
+const { cartsServices, productsServices } = require('../../../repositories/index');
 const { usersServices } = require('../../../repositories/index');
 
 Handlebars.registerHelper('ifNotNull', function (value, options) {
@@ -131,7 +130,16 @@ class HandlebarsServices {
       return res.sendServerError('Error Handlebars getProducts');
     }
   };
-
+  getTotalProducts = async () => {
+    try {
+      const totalProducts = await productsServices.countDocuments({});
+      return totalProducts;
+    } catch (error) {
+      // Maneja el error de consulta de la base de datos si es necesario
+      console.error('Error al obtener el total de productos:', error);
+      return 0; // Puedes devolver un valor predeterminado en caso de error
+    }
+  };
   getAdminProducts = async (limit, page, sort, query, res, userData) => {
     try {
       const products = await ProductsServices.getAdminProducts(limit, page, sort, query, res);

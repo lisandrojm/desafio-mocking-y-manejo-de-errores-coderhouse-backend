@@ -15,16 +15,6 @@ const EErrors = require('../../../utils/errors/services/enums');
 const { generateProductErrorInfo } = require('../../../utils/errors/services/info');
 /* ************************************************************************** */
 class ProductsServices {
-  getTotalProducts = async () => {
-    try {
-      const totalProducts = await productsServices.countDocuments({});
-      return totalProducts;
-    } catch (error) {
-      // Maneja el error de consulta de la base de datos si es necesario
-      console.error('Error al obtener el total de productos:', error);
-      return 0; // Puedes devolver un valor predeterminado en caso de error
-    }
-  };
   getAllProducts = async (limit, page, sort, query, res) => {
     try {
       const options = {
