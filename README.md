@@ -30,6 +30,10 @@ Este repositorio contiene el desafío "Mocking y manejo de errores" con los sigu
 
 
 
+https://github.com/lisandrojm/desafio_mocking_y_manejo_de_errores/assets/35199683/4e0ba824-de73-432f-986a-f8fab9e3e46f
+
+
+
 
 ## Requisitos
 
