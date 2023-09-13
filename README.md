@@ -29,8 +29,6 @@ Este repositorio contiene el desafío "Mocking y manejo de errores" con los sigu
 ## Video demo
 
 
-https://github.com/lisandrojm/desafio_mocking_y_manejo_de_errores/assets/35199683/e9a2c824-9576-4011-94f7-516c7b8484a8
-
 
 
 ## Requisitos
