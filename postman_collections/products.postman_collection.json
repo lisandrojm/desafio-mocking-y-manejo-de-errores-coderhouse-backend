@@ -416,7 +416,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"title\": \"Producto Postman\",\n  \"description\": \"Este es un producto de Postman\",\n  \"code\": \"a5\",\n  \"price\": 500,\n  \"stock\": 50,\n  \"category\": \"Categoría Postman\",\n  \"thumbnails\": [\n    \"/ruta/de/image10.jpg\",\n    \"/ruta/de/image11.jpg\",\n    \"/ruta/de/image12.jpg\"\n  ]\n} ",
+					"raw": "{\n  \"title\": \"Producto Postman\",\n  \"description\": \"Este es un producto de Postman\",\n  \"code\": \"a5\",\n  \"price\": 500,\n  \"stock\": 50,\n  \"category\": \"Categoría Postman\",\n  \"thumbnails\": []\n} ",
 					"options": {
 						"raw": {
 							"language": "json"
