@@ -26,7 +26,14 @@ Este repositorio contiene el desafío "Mocking y manejo de errores" con los sigu
 - `/src/utils/errors/services/enums.js`: Generador personalizado de errores.
 - `/src/utils/errors/services/info.js`: Diccionario de errores.
 
-## Video
+## Video demo
+
+
+
+https://github.com/lisandrojm/desafio_mocking_y_manejo_de_errores/assets/35199683/4e0ba824-de73-432f-986a-f8fab9e3e46f
+
+
+
 
 ## Requisitos
 
