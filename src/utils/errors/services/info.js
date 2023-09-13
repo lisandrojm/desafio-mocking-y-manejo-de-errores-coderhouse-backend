@@ -14,7 +14,7 @@ const generateUserErrorInfo = (user) => {
 const generateProductErrorInfo = (product) => {
   return `One or more properties were incomplete or not valid.
   List of required properties:
-  * ProductName: needs to be a String, received ${product.ProductName}
+  * title: needs to be a String, received ${product.ProductName}
   * description: needs to be a String, received ${product.description}
   * code: needs to be a String, received ${product.code}
   * price: needs to be a Number, received ${product.price}
