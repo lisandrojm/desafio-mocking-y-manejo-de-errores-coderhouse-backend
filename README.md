@@ -19,7 +19,7 @@ Este repositorio contiene el desafío "Mocking y manejo de errores" con los sigu
 
 ### Middleware para manejo de errores
 
-<small>Directorio de referencia del customizador de errores</small>
+<small>Directorios de referencia del customizador de errores</small>
 
 - `/src/utils/errors/index.js`
 - `/src/utils/errors/services/customError.js`: Middleware de recepción de errores.
