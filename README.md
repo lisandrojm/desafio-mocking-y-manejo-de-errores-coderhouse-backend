@@ -4,7 +4,7 @@ Este repositorio contiene el desafío "Mocking y manejo de errores" con los sigu
 
 ## Objetivos
 
-- Generación de un módulo de Mocking para el servidor. Al inicializarse genera y entrega 100 productos con el mismo formato que una petición de MongoDB. Ésto solo ocurre en el endpoint determinado (‘/mockingproducts’)
+- Generación de un módulo de Mocking para el servidor. Al inicializarse genera y entrega 100 productos con el mismo formato que una petición de MongoDB. Esto solo ocurre en el endpoint determinado (‘/mockingproducts’)
 - Implementación de un customizador de errores y un diccionario para los errores más comunes al crear un producto.
 
 ## Aspectos incluidos:
