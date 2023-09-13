@@ -83,7 +83,7 @@ Sigue estos pasos para instalar y configurar el proyecto:
 
 7. Ahora podrás utilizar la vista de Login en la aplicación.
 
-## Credenciales de Admin para testing de roles de usuario:
+## Credenciales de Admin para cookies de Postman:
 
 ### Email:
 
