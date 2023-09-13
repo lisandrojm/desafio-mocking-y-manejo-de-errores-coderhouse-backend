@@ -28,12 +28,7 @@ Este repositorio contiene el desafío "Mocking y manejo de errores" con los sigu
 
 ## Video demo
 
-
-
 https://github.com/lisandrojm/desafio_mocking_y_manejo_de_errores/assets/35199683/4e0ba824-de73-432f-986a-f8fab9e3e46f
-
-
-
 
 ## Requisitos
 
@@ -49,13 +44,13 @@ Sigue estos pasos para instalar y configurar el proyecto:
 1. Clona este repositorio en tu máquina local:
 
    ```bash
-   git clone https://github.com/lisandrojm/tercera_pre_entrega_del_PF
+   git clone https://github.com/lisandrojm/desafio_mocking_y_manejo_de_errores
    ```
 
 2. Navega al directorio del proyecto:
 
    ```bash
-   cd tercera_pre_entrega_del_PF
+   cd desafio_mocking_y_manejo_de_errores
    ```
 
 3. Instala las dependencias del proyecto ejecutando el siguiente comando:
@@ -90,7 +85,7 @@ Sigue estos pasos para instalar y configurar el proyecto:
 
 7. Ahora podrás utilizar la vista de Login en la aplicación.
 
-## Credenciales de Admin para cookies de Postman:
+## Credenciales de Admin:
 
 ### Email:
 
